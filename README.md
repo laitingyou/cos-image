@@ -33,7 +33,7 @@ Vue.use(CosImage)
       error-image="error.png"
       src="source.png"
 	  :clarity="70"
-      ></cos-image
+      ></cos-image>
 ```
 
 ### Optional props
@@ -42,7 +42,7 @@ Vue.use(CosImage)
 - `cos-image[thumbnailClarity]` The definition of thumbnail is 1-100, and the default is 1.
 - `cos-image[src]` Picture display address.
 - `cos-image[clarity]` The definition of the original image is 1-100, and the default is 100.
-- `cos-image[type]` The definition of thumbnail is 1-100, and the default is 1.
+- `cos-image[type]` Thumbnail or loading. The default is thumbnail.
 - `cos-image[loading]` Loading before the end of the loading of the original image, which is self-contained by default.
 - `cos-image[errorImage]` Failed bitmap, empty by default.
 
@@ -61,7 +61,7 @@ Supports attributes and events for all native img elements.
 	 @load="successEvent"
 	 @error="failEvent"
       src="source.png"
-      ></cos-image
+      ></cos-image>
 ```
 
 ## Browser support
