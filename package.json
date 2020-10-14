@@ -1,17 +1,29 @@
 {
   "name": "cos-image",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "serve": "vue-cli-service serve"
+  },
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/laitingyou/cos-image"
   },
   "main": "main.js",
   "files": [
     "asset",
     "src",
     "main.js",
-    "README.md"
+    "README.md",
+    "package.json"
+  ],
+  "keywords": [
+    "cos",
+    "vue",
+    "image",
+    "photo",
+    "img",
+    "cos-image"
   ],
   "dependencies": {
   },
