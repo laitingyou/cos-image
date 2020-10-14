@@ -1,46 +1,70 @@
-# &lt;file-attachment&gt; element
+# &lt;cos-image&gt; image component.
 
-Attach files via drag and drop or file input.
-
+Tencent cloud image loading optimization control.
+## DEMO
+![loading](./asset/loading.gif "loading")
+![loading2](./asset/loading2.gif "loading2")
 ## Installation
 
 ```
-$ npm install @github/file-attachment-element
+$ npm install cos-image
 ```
 
 ## Usage
 
 ```js
-import '@github/file-attachment-element'
+import { CosImage } from 'cos-image'
+
+or
+
+import CosImage from 'cos-image'
+Vue.use(CosImage)
 ```
 
 ```html
-<file-attachment directory input="upload">
-  <input id="upload" type="file" multiple>
-</file-attachment>
+// simple
+<cos-image  src="xxx.png"></cos-image>
+
+// senior
+<cos-image
+      alt="load fail"
+	  thumbnail="thumbnail.png"
+	  :thumbnailClarity="1"
+      error-image="error.png"
+      src="source.png"
+	  :clarity="70"
+      ></cos-image
 ```
 
-### Optional attributes
+### Optional props
 
-- `file-attachment[directory]` enables traversing directories.
-- `file-attachment[input]` points to the ID of a file input inside of `<file-attachment>`. Files selected from the `<input>` will be attached to `<file-attachment>`. Supplying an input is strongly recommended in order to ensure users can upload files without a mouse or knowing where to paste files.
+- `cos-image[thumbnail]` Thumbnail, the default thumbnail of the original image.
+- `cos-image[thumbnailClarity]` The definition of thumbnail is 1-100, and the default is 1.
+- `cos-image[src]` Picture display address.
+- `cos-image[clarity]` The definition of the original image is 1-100, and the default is 100.
+- `cos-image[type]` The definition of thumbnail is 1-100, and the default is 1.
+- `cos-image[loading]` Loading before the end of the loading of the original image, which is self-contained by default.
+- `cos-image[errorImage]` Failed bitmap, empty by default.
 
-### Styling drag state
 
-A boolean `[hover]` attribute is present on `<file-attachment>` while files are dragged over the element.
+### Attributes
 
-```css
-file-attachment[hover] { border: 2px dashed grey; }
-```
+Supports attributes and events for all native img elements.
 
 ### Events
 
-- `file-attachment-accept` – Files were dropped onto the element. Call `event.preventDefault()` to prevent the drop. Bubbles.
-- `file-attachment-accepted` – Files were added to the attachment list and can be uploaded by the host app. Bubbles.
+- `error` – Image loading failure event.
+- `load` – Image loading success event.
+
+```
+<cos-image
+	 @load="successEvent"
+	 @error="failEvent"
+      src="source.png"
+      ></cos-image
+```
 
 ## Browser support
-
-Browsers without native [custom element support][support] require a [polyfill][].
 
 - Chrome
 - Firefox
@@ -54,7 +78,7 @@ Browsers without native [custom element support][support] require a [polyfill][]
 
 ```
 npm install
-npm test
+npm run serve
 ```
 
 ## License
